@@ -1,0 +1,85 @@
+<style>
+    .sort-group {
+      display: flex;
+      gap: 10px;
+    }
+  
+    .sort-method {
+      padding: 10px 20px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      background-color: white;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+  
+    .sort-method.selected {
+      background-color: #4CAF50;
+      color: white;
+      border-color: #4CAF50;
+    }
+</style>
+<hr><br>排序方式</br>
+<div class="sort-group" id="sortGroup">
+    <button class="sort-method" data-value="0">首字母排序</button>
+    <button class="sort-method" data-value="1">角色类型排序</button>
+    <button class="sort-method" data-value="2">剧本顺序排序(NA)</button>
+</div>
+
+
+<script>
+    const sort_buttons = document.querySelectorAll(".sort-method");
+
+    var rule_sort = (a, b) => {
+                    return a.dataset.name.localeCompare(b.dataset.name, 'zh');
+                };
+
+    function codeType(type) {
+        switch (type) {
+                case '镇民':
+                    return 1;
+                case '外来者':
+                    return 2;
+                case '爪牙':
+                    return 3;
+                case '恶魔':
+                    return 4;
+                default:
+                    return 5;
+        }
+    }
+
+    sort_buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        // 清除已有选择
+        sort_buttons.forEach(btn => btn.classList.remove("selected"));
+  
+        // 设置当前为选中
+        button.classList.add("selected");
+        sort_rule_num = button.dataset.value;
+        
+        switch(sort_rule_num) {
+            case '0':
+                rule_sort = (a, b) => {
+                    return a.dataset.name.localeCompare(b.dataset.name, 'zh');
+                };
+                break;
+            case '1':
+                rule_sort = (a, b) => {
+                    atyp = codeType(a.dataset.type);
+                    btyp = codeType(b.dataset.type);
+                    return atyp - btyp;
+                };
+                break;
+            case '2':
+                rule_sort = (a, b) => {
+                    return a.dataset.name.localeCompare(b.dataset.name, 'zh');
+                };
+                break; //TODO
+        }
+
+        update();
+      });
+    });
+</script>

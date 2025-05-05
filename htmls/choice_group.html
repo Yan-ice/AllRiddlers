@@ -1,0 +1,60 @@
+<style>
+    .choice-group {
+      display: flex;
+      gap: 10px;
+    }
+  
+    .choice-type {
+      padding: 10px 20px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      background-color: white;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+  
+    .choice-type.selected {
+      background-color: #4CAF50;
+      color: white;
+      border-color: #4CAF50;
+    }
+</style>
+<hr><br>角色类型</br>
+<div class="choice-group" id="choiceGroup">
+    <button class="choice-type" data-value="0">全部</button>
+    <button class="choice-type" data-value="1">镇民</button>
+    <button class="choice-type" data-value="2">外来者</button>
+    <button class="choice-type" data-value="3">爪牙</button>
+    <button class="choice-type" data-value="4">恶魔</button>
+</div>
+
+<script>
+    const choice_buttons = document.querySelectorAll(".choice-type");
+    const result = document.getElementById("result");
+
+    var type_filter_num = 0;
+
+    var rule_type_filter = (item) => {
+            return type_filter_num == 0 || 
+                type_filter_num == codeType(item.dataset.type);
+        };
+
+    
+      choice_buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        // 清除已有选择
+        choice_buttons.forEach(btn => btn.classList.remove("selected"));
+  
+        // 设置当前为选中
+        button.classList.add("selected");
+
+        type_filter_num = button.dataset.value;
+        rule_type_filter = (item) => {
+            return type_filter_num == 0 || 
+                type_filter_num == codeType(item.dataset.type);
+        };
+        update();
+      });
+    });
+</script>
