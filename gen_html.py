@@ -1,6 +1,6 @@
 import os
 
-VERSION = 'v1.0'
+VERSION = 'v1.1'
 
 REMOTE = True
 
@@ -59,6 +59,7 @@ html = """
 <head>
     <meta charset="UTF-8">
     <title>全员追忆</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: sans-serif;
@@ -90,10 +91,41 @@ html = """
             font-size: 12px;
             color: #333;
         }
+
+        /* Collapsible Filter Styling */
+        details > summary {
+            list-style: none; /* Remove default marker */
+            cursor: pointer;
+            padding: 10px;
+            background-color: #f9fafb; /* Light gray background for summary */
+            border-radius: 8px;
+            font-weight: 600;
+            color: #1f2937; /* Dark gray text */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        details > summary::-webkit-details-marker {
+            display: none; /* Hide marker in Chrome/Safari */
+        }
+        details > summary::after { /* Custom arrow indicator */
+            content: '▼'; /* Down arrow */
+            font-size: 0.8em;
+            transition: transform 0.2s ease-in-out;
+        }
+        details[open] > summary::after {
+            transform: rotate(180deg); /* Rotate arrow when open */
+        }
     </style>
 </head>
 <body>
-    <h1>全员追忆智能剧本</h1>
+    <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">全员追忆智能剧本</h1>
+
+<details class="mb-6 bg-white rounded-lg shadow overflow-hidden">
+    <summary class="text-lg">
+        <span>筛选与排序选项</span>
+        </summary>
+    <div class="p-4">
 """
 with open("htmls/util.html", "r") as f:
     html += f.read()
@@ -107,7 +139,12 @@ with open("htmls/sort_method.html", "r") as f:
 with open("htmls/tag_choose.html", "r") as f:
     html += f.read()
      
-html += """ <br><hr><div class="grid" id="grid"> """
+html += """ 
+</div>
+</details>
+
+<br><hr><div class="grid" id="grid"> 
+"""
 
 # 添加每个图标+文字组合
 for item in datas:
@@ -119,9 +156,8 @@ for item in datas:
     """
 
 # 结束 HTML
-html += """
-    </div>
 
+html += """
 <script>
 
 var items_all;
@@ -148,17 +184,22 @@ function update() {
 
     items = items.filter(rule_tag_filter)
 
-    items.forEach(item => grid.appendChild(item));
+    if (items.length == 0){
+        
+    }else{
+        items.forEach(item => grid.appendChild(item));
+    }
+    
 }
 
 </script>
 """
-
 html += f"""
+    </div>
 <hr>
-{VERSION} by 不是鱼子酱
-</body>
-</html>
+<p class="text-center text-sm text-gray-500">
+{VERSION} by 不是鱼子酱 & Gemini | 2025.05.06
+</p>
 """
 
 os.makedirs(f"output", exist_ok=True)

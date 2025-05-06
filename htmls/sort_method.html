@@ -4,23 +4,27 @@
       gap: 10px;
     }
   
-    .sort-method {
-      padding: 10px 20px;
-      border: 2px solid #ccc;
-      border-radius: 8px;
-      background-color: white;
-      cursor: pointer;
-      font-size: 16px;
-      transition: 0.2s;
-    }
-  
-    .sort-method.selected {
-      background-color: #4CAF50;
-      color: white;
-      border-color: #4CAF50;
-    }
+    .choice-type, .sort-method, .tag-method {
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            border-radius: 9999px; /* Pill shape */
+            background-color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+            margin: 2px;
+        }
+        .choice-type:hover, .sort-method:hover, .tag-method:hover {
+            background-color: #f0f0f0;
+        }
+        .choice-type.selected, .sort-method.selected, .tag-method.selected {
+            background-color: #3b82f6; /* Blue background for selected */
+            color: white;
+            border-color: #3b82f6;
+        }
 </style>
-<hr><br>排序方式</br>
+
+<br>排序方式</br>
 <div class="sort-group" id="sortGroup">
     <button class="sort-method" data-value="0">首字母排序</button>
     <button class="sort-method" data-value="1">角色类型排序</button>
@@ -69,6 +73,9 @@
                 rule_sort = (a, b) => {
                     atyp = codeType(a.dataset.type);
                     btyp = codeType(b.dataset.type);
+                    if(atyp == btyp) {
+                        return a.dataset.name.localeCompare(b.dataset.name, 'zh');
+                    }
                     return atyp - btyp;
                 };
                 break;

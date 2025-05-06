@@ -4,23 +4,27 @@
       gap: 10px;
     }
   
-    .tag-method {
-      padding: 10px 20px;
-      border: 2px solid #ccc;
-      border-radius: 8px;
-      background-color: white;
-      cursor: pointer;
-      font-size: 16px;
-      transition: 0.2s;
-    }
-  
-    .tag-method.selected {
-      background-color: #4CAF50;
-      color: white;
-      border-color: #4CAF50;
-    }
+    .choice-type, .sort-method, .tag-method {
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            border-radius: 9999px; /* Pill shape */
+            background-color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+            margin: 2px;
+        }
+        .choice-type:hover, .sort-method:hover, .tag-method:hover {
+            background-color: #f0f0f0;
+        }
+        .choice-type.selected, .sort-method.selected, .tag-method.selected {
+            background-color: #3b82f6; /* Blue background for selected */
+            color: white;
+            border-color: #3b82f6;
+        }
 </style>
-<hr><br>标签筛选</br>
+
+<br>标签筛选</br>
 
 <div class="tag-group" id="tagGroup">
     <button class="tag-method" data-value="中毒">中毒</button>

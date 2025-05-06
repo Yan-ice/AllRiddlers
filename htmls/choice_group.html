@@ -3,24 +3,28 @@
       display: flex;
       gap: 10px;
     }
-  
-    .choice-type {
-      padding: 10px 20px;
-      border: 2px solid #ccc;
-      border-radius: 8px;
-      background-color: white;
-      cursor: pointer;
-      font-size: 16px;
-      transition: 0.2s;
-    }
-  
-    .choice-type.selected {
-      background-color: #4CAF50;
-      color: white;
-      border-color: #4CAF50;
-    }
+
+    .choice-type, .sort-method, .tag-method {
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            border-radius: 9999px; /* Pill shape */
+            background-color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+            margin: 2px;
+        }
+        .choice-type:hover, .sort-method:hover, .tag-method:hover {
+            background-color: #f0f0f0;
+        }
+        .choice-type.selected, .sort-method.selected, .tag-method.selected {
+            background-color: #3b82f6; /* Blue background for selected */
+            color: white;
+            border-color: #3b82f6;
+        }
 </style>
-<hr><br>角色类型</br>
+
+<br>角色类型筛选</br>
 <div class="choice-group" id="choiceGroup">
     <button class="choice-type" data-value="0">全部</button>
     <button class="choice-type" data-value="1">镇民</button>
