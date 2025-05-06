@@ -127,16 +127,16 @@ html = """
         </summary>
     <div class="p-4">
 """
-with open("htmls/util.html", "r") as f:
+with open("htmls/util.html", "r", encoding="utf-8") as f:
     html += f.read()
 
-with open("htmls/choice_group.html", "r") as f:
+with open("htmls/choice_group.html", "r", encoding="utf-8") as f:
     html += f.read()
 
-with open("htmls/sort_method.html", "r") as f:
+with open("htmls/sort_method.html", "r", encoding="utf-8") as f:
     html += f.read()
     
-with open("htmls/tag_choose.html", "r") as f:
+with open("htmls/tag_choose.html", "r", encoding="utf-8") as f:
     html += f.read()
      
 html += """ 

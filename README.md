@@ -1,4 +1,5 @@
 # 全员追忆 智能剧本生成器
+
 一款可以快速爬取官方网站最新角色数据并生成智能全员追忆剧本(HTML)的项目。
 
 **为什么要做这样一个东西？**
@@ -12,6 +13,7 @@
 对，就是这样
 
 ## 项目结构
+
 `characters/` 存有官网的所有角色列表，目前由个人手动爬取并整理。
 
 `data/` 将会保存从官网爬取的所有角色数据。
@@ -20,37 +22,42 @@
 
 `output/` 将保存生成的剧本。
 
-`fetch_data.py` 运行后会根据`characters`列表爬取官网角色数据，保存到`data/`。
+`fetch_data.py` 运行后会根据 `characters`列表爬取官网角色数据，保存到 `data/`。
 
-`gen_html.py` 运行后会读取`htmls/`的源码并和`data/`的角色数据并生成剧本。
-
+`gen_html.py` 运行后会读取 `htmls/`的源码并和 `data/`的角色数据并生成剧本。
 
 ## 快速上手
+
 请确保你安装了python3.8以上，并建议在Ubuntu20.04环境运行。
 
 (暂时没适配windows但应该也不难)
 
 1. Python 环境配置
+
 ```
-pip install urllib requests beautifulsoup4
+pip install requests beautifulsoup4
 ```
 
 2. 获取官方角色数据
+
 ```
 python3 fetch_data.py
 ```
+
 为了不给服务器造成太大压力，爬取数据设置了2秒一条。
 
 （请不要恶意爬虫哦）
 
 3. 生成html剧本
+
 ```
 python3 gen_html.py
 ```
+
 然后就可以在项目目录下看到生成的**全员追忆.html**文件了。
 
-
 ## 待办清单
+
 1. 自动爬取角色列表
 
 目前角色列表由个人手动爬取整理，还是稍微烦了点。
@@ -60,7 +67,6 @@ python3 gen_html.py
 问就是暂时还没爬华灯数据
 
 3. 新加剧本筛选/按剧本排序
-
 4. 美化界面
 
 ## 参与维护/联系我们
@@ -68,4 +74,3 @@ python3 gen_html.py
 (不是鱼子酱)邮箱：yan2364728692@gmail.com
 
 欢迎给项目提交PR或共同成为维护者
-
