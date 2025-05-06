@@ -32,7 +32,7 @@
 
 1. Python 环境配置
 ```
-pip install urllib requests beautifulsoup4
+pip install requests beautifulsoup4
 ```
 
 2. 获取官方角色数据
