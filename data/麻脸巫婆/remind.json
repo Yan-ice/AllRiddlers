@@ -1,0 +1,1 @@
+{"firstNightRemind": "", "otherNightRemind": "唤醒麻脸巫婆，让她选择一名玩家和角色列表上的一个角色。如果该角色不在场，则在麻脸巫婆入睡后通知该玩家角色变化。根据实际情况，可以将相关通知合并，例如玩家变成了恶魔，则在恶魔行动时一并唤醒，通知角色变化并让他执行相应行动。", "remindIcons": [], "remindIconsGlobal": [], "affectSetup": false}

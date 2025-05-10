@@ -1,0 +1,1 @@
+{"firstNightRemind": "", "otherNightRemind": "唤醒流莺。让流莺指向任意一名玩家。让流莺重新入睡。唤醒被选中的玩家，对该玩家展示“该角色的能力对你生效”提示标记和流莺角色标记。该玩家需要通过点头表示是，摇头表示否。然后让该玩家重新入睡。", "remindIcons": ["死亡"], "remindIconsGlobal": ["死亡"], "affectSetup": false}

@@ -1,0 +1,1 @@
+{"firstNightRemind": "唤醒恐惧之灵，让他选择一名玩家，随后通知所有玩家恐惧之灵选择了一名玩家。", "otherNightRemind": "唤醒恐惧之灵，让他选择一名玩家，随后如果恐惧之灵的目标发生了变更，通知所有玩家恐惧之灵选择了一名玩家。", "remindIcons": ["恐惧"], "remindIconsGlobal": ["恐惧"], "affectSetup": false}

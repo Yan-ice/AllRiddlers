@@ -41,7 +41,7 @@
 
     var rule_type_filter = (item) => {
             return type_filter_num == 0 || 
-                type_filter_num == codeType(item.dataset.type);
+                type_filter_num == int(item.dataset.team);
         };
 
     
@@ -56,7 +56,7 @@
         type_filter_num = button.dataset.value;
         rule_type_filter = (item) => {
             return type_filter_num == 0 || 
-                type_filter_num == codeType(item.dataset.type);
+                type_filter_num == int(item.dataset.type);
         };
         update();
       });

@@ -1,0 +1,1 @@
+{"firstNightRemind": "", "otherNightRemind": "唤醒道士，让其选择一名玩家。如果他选中了恶魔，在道士角色标记旁放置“死亡”提示标记，并且在恶魔角色标记旁放置“醉酒”提示标记。", "remindIcons": ["醉酒", "死亡"], "remindIconsGlobal": ["醉酒", "死亡"], "affectSetup": false}

@@ -1,0 +1,1 @@
+{"firstNightRemind": "（在进入首个夜晚时立即通知赏金猎人转变的那个镇民他的阵营发生了变化）唤醒赏金猎人，对他指向一名邪恶玩家。", "otherNightRemind": "如果赏金猎人之前得知的玩家死亡，唤醒赏金猎人，对他指向一名新的邪恶玩家。", "remindIcons": ["得知"], "remindIconsGlobal": ["得知"], "affectSetup": true}

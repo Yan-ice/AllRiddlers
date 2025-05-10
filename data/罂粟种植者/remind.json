@@ -1,0 +1,1 @@
+{"firstNightRemind": "如果罂粟种植者在场，跳过今晚的爪牙信息和恶魔信息环节。", "otherNightRemind": "如果罂粟种植者死于白天，插入执行爪牙信息和恶魔信息（不包含恶魔伪装）流程。如果罂粟种植者死于夜晚，则在当前玩家行动结束后立即执行相关流程。", "remindIcons": ["唤醒邪恶"], "remindIconsGlobal": ["唤醒邪恶"], "affectSetup": false}

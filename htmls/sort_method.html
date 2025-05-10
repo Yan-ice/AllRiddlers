@@ -71,8 +71,8 @@
                 break;
             case '1':
                 rule_sort = (a, b) => {
-                    atyp = codeType(a.dataset.type);
-                    btyp = codeType(b.dataset.type);
+                    atyp = codeType(a.dataset.team);
+                    btyp = codeType(b.dataset.team);
                     if(atyp == btyp) {
                         return a.dataset.name.localeCompare(b.dataset.name, 'zh');
                     }

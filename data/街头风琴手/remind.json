@@ -1,0 +1,1 @@
+{"firstNightRemind": "让街头风琴手选择自己是否醉酒。如果他点头，标记街头风琴手醉酒。", "otherNightRemind": "让街头风琴手选择自己是否醉酒。如果他点头，标记街头风琴手醉酒。如果他摇头，移除街头风琴手的醉酒标记。", "remindIcons": ["醉酒"], "remindIconsGlobal": ["醉酒"], "affectSetup": false}

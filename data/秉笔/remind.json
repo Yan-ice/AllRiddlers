@@ -1,0 +1,1 @@
+{"firstNightRemind": "", "otherNightRemind": "在夜晚时，如果秉笔旁放置了“死于今日”提示标记，唤醒秉笔。对他指向一名善良玩家。让秉笔重新入睡。移除“死于今日”提示标记。如果秉笔在夜晚死亡，唤醒秉笔。对他指向一名邪恶玩家。让秉笔重新入睡。", "remindIcons": ["死于今日"], "remindIconsGlobal": ["死于今日"], "affectSetup": false}

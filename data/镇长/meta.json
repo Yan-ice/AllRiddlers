@@ -1,0 +1,1 @@
+{"ability": "如果只有三名玩家存活且白天没有人被处决，你的阵营获胜。如果你在夜晚即将死亡，可能会有一名其他玩家代替你死亡。", "team": "townsfolk", "script": "暗流涌动", "tags": ["免死", "处决", "特殊胜利失败条件"], "image": "https://clocktower-wiki.gstonegames.com/images/thumb/2/20/Mayor.png/200px-Mayor.png"}
