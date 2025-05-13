@@ -1,0 +1,38 @@
+
+
+
+<style>
+    .fixed-bottomleft {
+      position: absolute;
+      left: 0px;   /* 距离右边的距离，可调整 */
+      width: 20vw;      /* 设为视口宽度的10% */
+      height: auto;
+      z-index: 1000; /* 确保图片在最上层 */
+    }
+    .fixed-bottomright {
+      position: absolute;
+      right: 0px;   /* 距离右边的距离，可调整 */
+      width: 20vw;      /* 设为视口宽度的10% */
+      height: auto;
+      z-index: 1000; /* 确保图片在最上层 */
+    }
+    .fixed-bottom {
+      background-color: bisque;
+      position: absolute;
+      margin-top: 40px;
+      text-align: center;
+      left: 0px;
+      right: 0px;   /* 距离右边的距离，可调整 */
+      width: 100vw;      /* 设为视口宽度的10% */
+      height: 100px;
+      z-index: 999; /* 确保图片在最上层 */
+    }
+</style>
+
+  
+  <img src="https://clocktower-wiki.gstonegames.com/skins/pivot/assets/image/flower3.png" alt="botleft" class="fixed-bottomleft">
+  <div class="fixed-bottom">
+      
+  </div>
+  <img src="https://clocktower-wiki.gstonegames.com/skins/pivot/assets/image/flower4.png" alt="botright" class="fixed-bottomright">
+

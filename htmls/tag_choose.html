@@ -81,7 +81,7 @@
             require_tags.add(button.dataset.value);
         }
         rule_tag_filter = (a) => {
-          var tags = a.dataset.tag.split(' ');
+          var tags = a.dataset.tag.split("_");
           var fail = false;
           require_tags.forEach(require => {
               if(!tags.includes(require)){

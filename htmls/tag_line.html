@@ -1,0 +1,47 @@
+<style>
+    /* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+    @font-face {
+        font-family: "Daoli";
+        font-weight: 400;
+        src: url("https://at.alicdn.com/wf/webfont/nRpi1rfWDUio/l0upgzdfBCRD.woff2") format("woff2"),
+            url("https://at.alicdn.com/wf/webfont/nRpi1rfWDUio/Z67jXdbfKpGf.woff") format("woff");
+        font-display: swap;
+    }
+    .splitl-bar {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .splitl-title {
+      color: #228afa;
+      font-size: 24px;
+      font-family: 'Daoli', 'Arial Black', sans-serif;
+      text-shadow: 1px 1px 1px #aaa;
+      white-space: nowrap;
+    }
+
+    .splitl-line {
+      flex: 1;
+      height: 2px;
+      background-color: #228afa;
+      margin-left: 20px;
+    }
+</style>
+
+<script>
+    function create_splitline(name){
+        const container = document.createElement('div');
+        container.className = 'splitl-bar';
+        const title = document.createElement('div');
+        title.innerHTML = name;
+        title.className = 'splitl-title';
+        const divline = document.createElement('div');
+        divline.className = 'splitl-line';
+        container.appendChild(title);
+        container.appendChild(divline);
+        return container;
+    }
+</script>

@@ -1,0 +1,76 @@
+<style>
+    .category-group {
+      display: flex;
+      gap: 10px;
+    }
+  
+    .choice-type, .category-method, .tag-method {
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            border-radius: 9999px; /* Pill shape */
+            background-color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+            margin: 2px;
+        }
+        .choice-type:hover, .category-method:hover, .tag-method:hover {
+            background-color: #f0f0f0;
+        }
+        .choice-type.selected, .category-method.selected, .tag-method.selected {
+            background-color: #3b82f6; /* Blue background for selected */
+            color: white;
+            border-color: #3b82f6;
+        }
+</style>
+
+<!-- <br>Category方式</br>
+<div class="category-group" id="categoryGroup">
+    <button class="category-method" data-value="0">首字母排序</button>
+    <button class="category-method" data-value="1">角色类型排序</button>
+    <button class="category-method" data-value="2">剧本顺序排序(NA)</button>
+</div> -->
+
+
+<script>
+    const category_buttons = document.querySelectorAll(".category-method");
+
+    var rule_cate = (x) => {
+        cate = {"善良阵营·镇民":[], "善良阵营·外来者":[], "邪恶阵营·爪牙":[], "邪恶阵营·恶魔":[]}
+        x.forEach((ele)=>{
+            console.log(ele);
+            switch(ele.dataset.team*1){
+                case 1:
+                    cate["善良阵营·镇民"].push(ele);
+                    break;
+                case 2:
+                    cate["善良阵营·外来者"].push(ele);
+                    break; 
+                case 3:
+                    cate["邪恶阵营·爪牙"].push(ele);
+                    break;
+                case 4:
+                    cate["邪恶阵营·恶魔"].push(ele);
+                    break;
+            }
+        });
+        return cate;
+    }
+    category_buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        // 清除已有选择
+        category_buttons.forEach(btn => btn.classList.remove("selected"));
+        
+        // 设置当前为选中
+        button.classList.add("selected");
+        category_rule_num = button.dataset.value;
+        
+        switch(category_rule_num) {
+            case '0':
+                break;
+        }
+
+        update();
+      });
+    });
+</script>

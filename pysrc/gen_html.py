@@ -24,7 +24,7 @@ def sort_func(x):
 def generate_html_output():
     root_dir = 'data'
     # 获取所有文件
-    data_files = load_character_list
+    data_files = load_character_list()
 
     team_map = {}
     datas = []
@@ -59,67 +59,88 @@ def generate_html_output():
         <meta charset="UTF-8">
         <title>全员追忆</title>
         <script src="https://cdn.tailwindcss.com"></script>
-        <style>
-            body {
-                font-family: sans-serif;
-                padding: 20px;
-                background-color: #f4f4f4;
-            }
-            .grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-                gap: 10px;
-            }
-            .item {
-                background-color: white;
-                border-radius: 0px;
-                padding: 0px;
-                display: flex; /* 横向排列 */
-                text-align: center;
-                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            }
-            .item img {
-                width: 70px;
-                height: 70px;
-                object-fit: contain;
-            }
-            .item p {
-                text-align: left;
-                margin-right: 20px;
-                margin-top: 10px;
-                font-size: 12px;
-                color: #333;
-            }
+    <style>
+    body {
+        font-family: sans-serif;
+        background-image: url('https://pic.616pic.com/bg_w1180/00/00/82/iIYHaUAUfK.jpg');  /* 背景图片路径 */
+        background-size: 100%;                  /* 拉伸以覆盖整个区域 */
+        background-repeat: repeat;            /* 不重复平铺 */
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 10px;
+    }
+    .item {
+        border-radius: 0px;
+        padding: 0px;
+        display: flex; /* 横向排列 */
+        text-align: center;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .item img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+    }
+    .item p {
+        text-align: left;
+        margin-right: 20px;
+        margin-top: 10px;
+        font-size: 12px;
+        color: #333;
+    }
 
-            /* Collapsible Filter Styling */
-            details > summary {
-                list-style: none; /* Remove default marker */
-                cursor: pointer;
-                padding: 10px;
-                background-color: #f9fafb; /* Light gray background for summary */
-                border-radius: 8px;
-                font-weight: 600;
-                color: #1f2937; /* Dark gray text */
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            details > summary::-webkit-details-marker {
-                display: none; /* Hide marker in Chrome/Safari */
-            }
-            details > summary::after { /* Custom arrow indicator */
-                content: '▼'; /* Down arrow */
-                font-size: 0.8em;
-                transition: transform 0.2s ease-in-out;
-            }
-            details[open] > summary::after {
-                transform: rotate(180deg); /* Rotate arrow when open */
-            }
-        </style>
+    .content_body {
+        background-color: white;
+        margin-right: 5vw;
+        margin-left: 5vw;
+        padding: 20px;
+    }
+
+    /* Collapsible Filter Styling */
+    details > summary {
+        list-style: none; /* Remove default marker */
+        cursor: pointer;
+        padding: 10px;
+        background-color: #f9fafb; /* Light gray background for summary */
+        border-radius: 8px;
+        font-weight: 600;
+        color: #1f2937; /* Dark gray text */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    details > summary::-webkit-details-marker {
+        display: none; /* Hide marker in Chrome/Safari */
+    }
+    details > summary::after { /* Custom arrow indicator */
+        content: '▼'; /* Down arrow */
+        font-size: 0.8em;
+        transition: transform 0.2s ease-in-out;
+    }
+    details[open] > summary::after {
+        transform: rotate(180deg); /* Rotate arrow when open */
+    }
+</style>
+    """
+
+    html += """
     </head>
-    <body>
-        <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">全员追忆智能剧本</h1>
 
+    <body>
+    <div class="content_body">
+
+    <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">全员追忆智能剧本</h1>
+    """
+
+    with open("htmls/skins_top.html", "r", encoding="utf-8") as f:
+        html += f.read()
+            
+    with open("htmls/tag_line.html", "r", encoding="utf-8") as f:
+        html += f.read()
+        
+    html += """
     <details class="mb-6 bg-white rounded-lg shadow overflow-hidden">
         <summary class="text-lg">
             <span>筛选与排序选项</span>
@@ -134,7 +155,10 @@ def generate_html_output():
 
     with open("htmls/sort_method.html", "r", encoding="utf-8") as f:
         html += f.read()
-        
+
+    with open("htmls/category_method.html", "r", encoding="utf-8") as f:
+        html += f.read()
+
     with open("htmls/tag_choose.html", "r", encoding="utf-8") as f:
         html += f.read()
         
@@ -142,14 +166,14 @@ def generate_html_output():
     </div>
     </details>
 
-    <br><hr><div class="grid" id="grid"> 
+    <br><hr><div id="character_content"> 
     """
 
     # 添加每个图标+文字组合
     for item in datas:
         tag_seri = ''
         for a in item['tags']:
-            tag_seri = tag_seri + a + ' '
+            tag_seri = tag_seri + a + '_'
         html += f"""
             <div class="item" data-name={item['name']} data-team={sort_func(item['team'])} data-tag={tag_seri} >
                 <img src="{item['image']}" alt="{item['name']}"> 
@@ -158,52 +182,69 @@ def generate_html_output():
         """
 
     # 结束 HTML
-
+    
     html += """
+    </div>
     <script>
 
     var items_all;
 
     function init() {
-        const grid = document.getElementById('grid');
+        const grid = document.getElementById('character_content');
         items_all = Array.from(grid.getElementsByClassName('item'));
         console.log("初始化逻辑已执行。");
+        update();
     }
 
     // 页面 DOM 加载完成后执行 init
     document.addEventListener("DOMContentLoaded", init);
 
     function update() {
-        const grid = document.getElementById('grid');
+        const content = document.getElementById('character_content');
         
-        grid.replaceChildren();
+        content.replaceChildren();
         var items = Array.from(items_all);
-        
+
+        items = items.filter(rule_type_filter);
+
+        items = items.filter(rule_tag_filter);
         // 按 data-name 排序
-        items.sort(rule_sort);
-        
-        items = items.filter(rule_type_filter)
+        item = items.sort(rule_sort);
 
-        items = items.filter(rule_tag_filter)
-
-        if (items.length == 0){
+        cate_items = rule_cate(items);
+        Object.keys(cate_items).forEach((key) => {
+            const list = cate_items[key];
+            if (list.length > 0) {
+                const container = document.createElement('div');
+                container.className = 'grid';
+                
+                list.forEach((x)=>{
+                    container.appendChild(x);
+                });
+                const head = create_splitline(key);
+                content.appendChild(head);
+                content.appendChild(container);
+            }
             
-        }else{
-            items.forEach(item => grid.appendChild(item));
-        }
+        })
         
     }
 
     </script>
     """
-    html += f"""
-        </div>
-    <hr>
-    <p class="text-center text-sm text-gray-500">
-    {VERSION} by 不是鱼子酱 & Gemini | 2025.05.06
-    </p>
-    """
 
+    with open("htmls/skins_bottom.html", "r", encoding="utf-8") as f:
+            html += f.read()
+
+    html += f""" <hr>
+
+    <p class="text-center text-sm text-gray-500">
+        {VERSION} by 不是鱼子酱 & Gemini | 2025.05.06
+    </p>
+
+    </div>
+    </body>
+    """
     os.makedirs(f"output", exist_ok=True)
 
     # 保存为 HTML 文件
