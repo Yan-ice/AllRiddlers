@@ -130,8 +130,9 @@ def generate_html_output():
 
     <body>
     <div class="content_body">
-
-    <h1 class="text-3xl font-bold mb-6 text-center text-blue-700">全员追忆智能剧本</h1>
+	<div style="display: flex; justify-content: center;" >
+	<img style="width: 60%; height: auto;" src="https://i1.hdslb.com/bfs/article/3530450a4dd44ea1f76316fa805b50f044902471.png@1192w.avif">
+	</div>
     """
 
     with open("htmls/skins_top.html", "r", encoding="utf-8") as f:
@@ -166,7 +167,7 @@ def generate_html_output():
     </div>
     </details>
 
-    <br><hr><div id="character_content"> 
+    <hr><div id="character_content"> 
     """
 
     # 添加每个图标+文字组合
