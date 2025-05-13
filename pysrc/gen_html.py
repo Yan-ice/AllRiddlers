@@ -2,9 +2,8 @@ import os
 import json
 from pysrc.local_cache import *
 
-VERSION = 'v1.1'
-
 REMOTE = True
+VERSION = 'v1.2'
 
 def sort_func(x):
         if x.startswith('towns'):

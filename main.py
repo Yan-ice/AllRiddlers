@@ -1,9 +1,10 @@
+
+RUN = 'python3 main.py'
+
 from pysrc.gen_html import generate_html_output
 from pysrc.gen_json import generate_json_output
 from pysrc.fetch_data import fetch_all_character
 import sys
-
-RUN = 'python3 main.py'
 
 def help():
     print("Help: ")
